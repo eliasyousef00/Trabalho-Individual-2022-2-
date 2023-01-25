@@ -1,0 +1,20 @@
+# pode-se dizer que o docker-compose é um "orquestrador" de containers
+version: "3.5"
+services:
+  mongo:
+    container_name: mongo-db
+    image: mongo:3.5
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      -  metabase/config/mongo_exemple.env
+    volumes:
+      - mongo-volume:/mongo
+
+  py-project:
+    container_name: app
+    build: .
+
+volumes:
+  mongo-volume: {}
