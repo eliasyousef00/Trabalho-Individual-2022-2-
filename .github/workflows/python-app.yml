@@ -38,7 +38,9 @@ jobs:
         make html
       
     - name: Install dependencies
-      run: poetry install
+      run: |
+        cd poetry-ger
+        poetry install
       
     - name: Lint with flake8
       run: |
