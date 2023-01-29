@@ -5,11 +5,9 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "CI" ]
   pull_request:
     branches: [ "main" ]
-  push:
-    branches: ["CI"]
 
 permissions:
   contents: read
@@ -32,17 +30,17 @@ jobs:
         python3 -m venv .env
         env/bin/activate
       
+      - name: Install dependencies
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        cd poetry-ger
+        poetry install
+
     - name: sphinx
       run: |
         pip install sphinx
         cd docs
         make html
-      
-    - name: Install dependencies
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        cd poetry-ger
-        poetry install
       
     - name: Lint with flake8
       run: |
