@@ -28,8 +28,8 @@ jobs:
     - name: Update
       run: |
         sudo apt-get update
-        python -m pip install --upgrade pip
-        pip install flake8
+        sudo python -m pip install --upgrade pip
+        sudo pip install flake8
         
     - name: env python
       run: |
@@ -48,11 +48,9 @@ jobs:
       
     - name: Install dependencies
       run: |
-        pip3 install -r requirements.txt
-
-
+        sudo pip3 install -r requirements.txt
       
     - name: Test with pytest
       run: |
-        pip install pytest
+        sudo pip install pytest
         pytest --cov
