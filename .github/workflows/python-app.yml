@@ -32,9 +32,10 @@ jobs:
         
     - name: env python
       run: |
-        python3 -m venv .env
+        apt-get install python3-venv
+        python3 -m venv env
         env/bin/activate
-
+        
     - name: Install poetry
       run: curl -sSL https://install.python-poetry.org | python3 -
       
