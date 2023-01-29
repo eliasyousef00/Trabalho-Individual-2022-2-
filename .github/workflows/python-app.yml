@@ -58,4 +58,4 @@ jobs:
     - name: Test with pytest
       run: |
         cd tests
-        python3 /__init__.py
+        python __init__.py
