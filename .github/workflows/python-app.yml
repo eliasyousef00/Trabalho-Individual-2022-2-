@@ -32,7 +32,7 @@ jobs:
         
     - name: env python
       run: |
-        apt-get install python3-venv
+        sudo apt-get install python3-venv
         python3 -m venv env
         env/bin/activate
         
